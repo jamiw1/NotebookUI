@@ -18,14 +18,28 @@ local function applyNative(instance: any, native: {[string]: any}?)
 	end
 end
 
-local initializedChildren = {}
+local initializedChildren: {Instance} = {}
+local function initializeChild(child,parent,name)
+	table.insert(initializedChildren, child)
+	child.Name = typeof(name) == "string" and name or child.Name
+	child.Parent = parent
+	child.Destroying:Connect(function()
+		initializedChildren[table.find(initializedChildren, child) :: number] = nil
+	end)
+end
 local function setChildren(parent: Instance)
-	return function(children: { [any]: Instance })
+	return function(children: { [any]: Instance | () -> (...any) })
 		for name, child in pairs(children) do
-			if child and not table.find(initializedChildren, child) then
-				table.insert(initializedChildren, child)
-				child.Name = typeof(name) == "string" and name or child.Name
-				child.Parent = parent
+			if child then
+				if typeof(child) == "Instance" and not table.find(initializedChildren, child) then
+					initializeChild(child, parent, name)
+				end
+				if typeof(child) == "function" then
+					local result = child()
+					if typeof(result) == "Instance" and not table.find(initializedChildren, result) then
+						initializeChild(result,parent,name)
+					end
+				end
 			end
 		end
 		return parent
@@ -56,8 +70,7 @@ local guiTypes: {string} = {
     "UIPadding",
     "UISizeConstraint",
     "UIStroke",
-	"UIGradient",
-    "UIGridStyleLayout"
+	"UIGradient"
 }
 type Native = { [string]: any }
 
