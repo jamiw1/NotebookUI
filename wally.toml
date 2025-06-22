@@ -1,0 +1,10 @@
+[package]
+name = "jamiw1/notebookui"
+version = "0.1.0"
+repository = "https://github.com/jamiw1/NotebookUI"
+authors = ["jamied <hey@isuckat.dev>"]
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+exclude = ["src/client"]
+
+[dependencies]

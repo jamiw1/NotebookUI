@@ -1,5 +1,4 @@
 --Topbar icons example
-
 local TweenService = game:GetService("TweenService")
 local Notebook = require(game.ReplicatedStorage.Notebook)
 local Image = Notebook.Image
