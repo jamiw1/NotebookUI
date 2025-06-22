@@ -1,0 +1,10 @@
+# Project place file
+/notebookuilib.rbxl
+
+# Roblox Studio lock files
+/*.rbxl
+/*.rbxlx.lock
+/*.rbxl.lock
+
+sourcemap.json
+Packages/
