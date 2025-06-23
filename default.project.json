@@ -5,10 +5,7 @@
 
     "ReplicatedStorage": {
       "Notebook": {
-        "$path": "src/Notebook",
-        "Packages": {
-          "$path": "Packages"
-        }
+        "$path": "src/Notebook"
       }
     },
 
