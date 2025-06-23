@@ -1,12 +1,6 @@
 {
-  "name": "notebookuilib",
+  "name": "notebookui",
   "tree": {
-    "$className": "DataModel",
-
-    "ReplicatedStorage": {
-      "Notebook": {
-        "$path": "src/Notebook"
-      }
-    }
+    "$path": "src"
   }
 }
