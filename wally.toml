@@ -5,6 +5,6 @@ repository = "https://github.com/jamiw1/NotebookUI"
 authors = ["jamied <hey@isuckat.dev>"]
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
-exclude = ["src/client", ".luaurc", "aftman.toml", "selene.toml"]
+exclude = ["src/client", ".luaurc", "aftman.toml", "selene.toml", "serve.project.json"]
 
 [dependencies]
